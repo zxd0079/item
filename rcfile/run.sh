@@ -8,8 +8,8 @@ vim ~/a.txt <<EOF
 :wq
 EOF
 
+git clone http://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
-sh -c "$(wget -O- https://gitee.com/pocmon/mirrors/raw/master/tools/install.sh)"
 cp ~/item/rcfile/zsh/zshrc ~/.zshrc
 
 mv ~/item/rcfile/zsh/bira.zsh-theme ~/.oh-my-zsh/themes/bira.zsh-theme
