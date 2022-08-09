@@ -8,8 +8,11 @@ vim ~/a.txt <<EOF
 :wq
 EOF
 
-cp -r ~/item/rcfile/zsh/oh-my-zsh ~/.oh-my-zsh
+
+sh -c "$(wget -O- https://gitee.com/pocmon/mirrors/raw/master/tools/install.sh)"
 cp ~/item/rcfile/zsh/zshrc ~/.zshrc
+
+mv ~/item/rcfile/zsh/bira.zsh-theme ~/.oh-my-zsh/themes/bira.zsh-theme
 
 chsh -s /bin/zsh <<EOF
 uc.0079aml
