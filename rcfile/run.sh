@@ -14,15 +14,10 @@ cp ~/item/rcfile/zsh/zshrc ~/.zshrc
 
 cp -f  ~/item/rcfile/zsh/bira.zsh-theme ~/.oh-my-zsh/themes/bira.zsh-theme
 
-git clone https://github.com/joelthelion/autojump.git ~/autojump
-
-~/autojump/install.py
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 
 
-
-
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 
 
 chsh -s /bin/zsh <<EOF
