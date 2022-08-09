@@ -424,7 +424,7 @@ endfunction
 
 set nu
 set cul 
-set mouse=a
+set mouse=
 set selection=exclusive
 set selectmode=mouse,key
 set showmatch
