@@ -1,6 +1,6 @@
 #/bin/sh
 
-yum -y update && yum -y install gcc 
+yum -y install gcc 
 
 wget https://bootstrap.pypa.io/get-pip.py
 
