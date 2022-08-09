@@ -1,12 +1,5 @@
 #/bin/sh
 
-yum -y install gcc 
-
-wget https://bootstrap.pypa.io/get-pip.py
-
-python get-pip.py && yum -y install python-devel
-
-sudo -H pip install thefuck
 
 cp -r ~/item/rcfile/vim/bundle ~/.vim/
 cp ~/item/rcfile/vim/vimrc ~/.vimrc
