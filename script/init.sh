@@ -2,15 +2,7 @@
 
 yum -y update
 
-yum -y install gcc git zsh telnet vim unzip nc lrzsz  salt-minion
-
-
-wget https://bootstrap.pypa.io/get-pip.py
-
-python get-pip.py && yum -y install python-devel
-
-pip install thefuck
-
+yum -y install git zsh telnet vim unzip nc lrzsz  salt-minion  
 
 
 useradd xiaodong.zhou
@@ -26,9 +18,10 @@ su -c "ssh-keygen -N '' -f /home/xiaodong.zhou/.ssh/id_rsa" xiaodong.zhou
 
 su -c "git clone https://github.com/zxd0079/item.git ~/item" xiaodong.zhou
 
+chmod +x /home/xiaodong.zhou/item/rcfile/run.sh
+
 su -c "/home/xiaodong.zhou/item/rcfile/run.sh" xiaodong.zhou
 
-chmod +x /home/xiaodong.zhou/item/rcfile/run.sh
 
 rm -rf /home/xiaodong.zhou/item
 
