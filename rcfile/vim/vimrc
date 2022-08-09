@@ -422,7 +422,7 @@ endfunction
 """""""""""""
 
 
-set nu
+set nonu
 set cul 
 set mouse=
 set selection=exclusive
