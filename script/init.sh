@@ -62,7 +62,7 @@ touch /etc/docker/daemon.json
 
 cat /etc/docker/daemon.json <<EOF
 {
-  "registry-mirrors": ["https://u34p19q1.mirror.aliyuncs.com"]
+  "registry-mirrors": ["https://*.mirror.aliyuncs.com"]
   "data-root": "/server/docker"
 }
 EOF
@@ -74,7 +74,7 @@ systemctl enable docker
 
 
 useradd xiaodong.zhou
-echo "xiaodong.zhou:uc.0079aml" |chpasswd
+echo "xiaodong.zhou:*" |chpasswd
 
 chmod 700 /etc/sudoers
 echo "xiaodong.zhou    ALL=(ALL)       ALL" >> /etc/sudoers
@@ -93,7 +93,7 @@ su -c "/home/xiaodong.zhou/item/rcfile/run.sh" xiaodong.zhou
 
 rm -rf /home/xiaodong.zhou/item
 
-sed -i 's/#Port 22/Port 22444/g' /etc/ssh/sshd_config
+sed -i 's/#Port 22/Port * /g' /etc/ssh/sshd_config
 
 sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config
 
