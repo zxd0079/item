@@ -23,7 +23,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 
 
 chsh -s /bin/zsh <<EOF
-uc.0079aml
+passwd
 EOF
 
 
