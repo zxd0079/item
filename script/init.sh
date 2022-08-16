@@ -62,8 +62,12 @@ touch /etc/docker/daemon.json
 
 cat /etc/docker/daemon.json <<EOF
 {
-  "registry-mirrors": ["https://*.mirror.aliyuncs.com"]
-  "data-root": "/server/docker"
+  "registry-mirrors": ["https://*.mirror.aliyuncs.com"],
+  "data-root": "/server/docker",
+  "bip": "172.27.0.0/24",
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "live-restore": true
+
 }
 EOF
 
