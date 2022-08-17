@@ -1,5 +1,4 @@
 #!/bin/sh
-export PROD_VISIT=prod.servers-Visit@tingjiandan.com-v201510128
 date=`date +%y%m%d%H%M`
 item=$1
 home=/server/apps
