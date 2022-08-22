@@ -20,7 +20,7 @@ yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/
 
 yum makecache fast
 
-yum -y install git zsh telnet vim unzip nc lrzsz  salt-minion supervisor  yum-utils device-mapper-persistent-data lvm2
+yum -y install git zsh telnet vim unzip nc ss lrzsz  salt-minion supervisor  yum-utils device-mapper-persistent-data lvm2
 
 yum remove docker  docker-common docker-selinux docker-engine
 
