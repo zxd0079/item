@@ -1,11 +1,11 @@
 #/bin/sh
 
 
-cp -r ~/item/rcfile/vim/bundle ~/.vim/
+cp -r ~/item/rcfile/vim/bundle ~/.vim/bundle
 cp ~/item/rcfile/vim/vimrc ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
 
-vim ~/a.txt <<EOF
+vim  ~/a.txt <<EOF
 :PluginInstall
 :q!
 EOF
