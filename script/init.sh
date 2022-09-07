@@ -88,7 +88,7 @@ ssh-keygen -t rsa -N '' -f /root/.ssh/id_rsa
 
 su -c "ssh-keygen -N '' -f /home/xiaodong.zhou/.ssh/id_rsa" xiaodong.zhou
 
-su -c "git clone https://github.com/zxd0079/item.git ~/item" xiaodong.zhou
+su -c "git clone https://github.com/zxd0079/item.git /home/xiaodong.zhou/item" xiaodong.zhou
 
 chmod +x /home/xiaodong.zhou/item/rcfile/run.sh
 
@@ -100,6 +100,8 @@ rm -rf /home/xiaodong.zhou/item
 sed -i 's/#Port 22/Port * /g' /etc/ssh/sshd_config
 
 sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config
+
+echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config 
 
 systemctl restart sshd
 
