@@ -14,7 +14,7 @@ ulimit -a
 
 #echo "0" > /proc/sys/vm/swappiness
 
-yum -y install wget git zsh telnet vim unzip nc ss lrzsz  salt-minion supervisor  yum-utils device-mapper-persistent-data lvm2
+yum -y install wget git zsh telnet vim unzip nc net-tools lrzsz  salt-minion supervisor  yum-utils device-mapper-persistent-data lvm2 iptables iproute ipvsadm
 
 #yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo 
 
@@ -43,11 +43,9 @@ echo "net.core.somaxconn = 1024" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_window_scaling = 1" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_rmem = 4096 87380 16777216" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_wmem = 4096 16384 16777216" >> /etc/sysctl.conf
+echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 
 sysctl -p
-
-
-mkdir /server
 
 #for le in $(ls /dev/sd[b-z])
 #do
@@ -57,9 +55,8 @@ mkdir /server
 #mount -a &>/dev/null
 #done
 
-mkdir /server/docker
+mkdir -p /server/docker /etc/docker
 
-mkdir /etc/docker
 
 touch /etc/docker/daemon.json
 
@@ -67,7 +64,6 @@ cat >>/etc/docker/daemon.json <<EOF
 {
   "registry-mirrors": ["https://*.mirror.aliyuncs.com"],
   "data-root": "/server/docker",
-  "bip": "172.27.0.1/24",
   "exec-opts": ["native.cgroupdriver=systemd"],
   "live-restore": true
 
