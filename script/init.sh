@@ -14,13 +14,16 @@ ulimit -a
 
 #echo "0" > /proc/sys/vm/swappiness
 
-yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo 
+yum -y install wget git zsh telnet vim unzip nc ss lrzsz  salt-minion supervisor  yum-utils device-mapper-persistent-data lvm2
+
+#yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo 
 
 yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
+sed -i 's+download.docker.com+mirrors.aliyun.com/docker-ce+' /etc/yum.repos.d/docker-ce.repo
+
 yum makecache fast
 
-yum -y install git zsh telnet vim unzip nc ss lrzsz  salt-minion supervisor  yum-utils device-mapper-persistent-data lvm2
 
 yum remove docker  docker-common docker-selinux docker-engine
 
@@ -29,7 +32,7 @@ yum remove docker  docker-common docker-selinux docker-engine
 yum install -y docker-ce-19.03.9-3.el7 docker-ce-cli-19.03.9-3.el7 docker-compose containerd.io
 
 echo "ulimit -HSn 999999" >> /etc/sysconfig/docker
-echo "net.ipv4.ip_local_port_range = 1024 65535" >> /etc/sysctl.conf
+#echo "net.ipv4.ip_local_port_range = 1024 65535" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_tw_recycle = 1" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_tw_reuse = 1" >> /etc/sysctl.conf
 echo "net.core.rmem_max = 16777216" >> /etc/sysctl.conf
@@ -60,11 +63,11 @@ mkdir /etc/docker
 
 touch /etc/docker/daemon.json
 
-cat /etc/docker/daemon.json <<EOF
+cat >>/etc/docker/daemon.json <<EOF
 {
   "registry-mirrors": ["https://*.mirror.aliyuncs.com"],
   "data-root": "/server/docker",
-  "bip": "172.27.0.0/24",
+  "bip": "172.27.0.1/24",
   "exec-opts": ["native.cgroupdriver=systemd"],
   "live-restore": true
 
@@ -102,7 +105,6 @@ sed -i 's/#Port 22/Port * /g' /etc/ssh/sshd_config
 sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config
 
 echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config 
-
 systemctl restart sshd
 
 

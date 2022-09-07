@@ -7,7 +7,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 vim ~/a.txt <<EOF
 :PluginInstall
-:wq
+:q!
 EOF
 
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
